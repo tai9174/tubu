@@ -14,7 +14,8 @@ class PostsController < ApplicationController
   end
 
   def show
-    redirect_to new_post_path
+    # redirect_to new_post_path
+    @post = Post.find(params[:id])
   end
 
   private
