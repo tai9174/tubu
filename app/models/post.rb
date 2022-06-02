@@ -1,3 +1,3 @@
 class Post < ApplicationRecord
-  # self.abstract_class = true
+  validates :content, presence: true, length: { in: 1..140 } 
 end

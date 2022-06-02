@@ -8,9 +8,13 @@ class PostsController < ApplicationController
   end
 
   def create
-      Post.create(post_params)
+    @post = Post.new(post_params)
+    if @post.save
       # Post.create( content: params[:post][:content])
-      redirect_to new_post_path
+      redirect_to new_post_path, notice:"ブログを作成しました！"
+    else
+      render :new
+    end
   end
 
   def show
