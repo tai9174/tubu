@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to new_post_path, notice:"つぶやきました！"
+      redirect_to post_path, notice:"つぶやきました！"
     else
       render :new
     end
@@ -32,7 +32,16 @@ class PostsController < ApplicationController
       render :edit
     end
   end
-  
+
+  def destroy
+    @post = Post.find(params[:id])
+    if @post.destroy
+      redirect_to posts_path, notice:"つぶやきを削除しました！"
+    else
+      render :edit
+    end
+  end
+
   private
 
   def post_params

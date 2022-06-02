@@ -1,18 +1,3 @@
-<%= form_with(model: @post, local: true) do |form| %>
-  <% if @post.errors.any? %>
-    <div id="erroer_explanetion">
-      <h2>入力エラーがあります。</h2>
-      <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-      　　<li><%= msg %></li>
-    　<% end %>
-    　</ul>
-    </div>
-  <% end %>
+<h2>つぶやきを作成する</h2>
 
-  <div class="blog_content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-    <%= form.submit %>
-<% end %>
+<%= render 'form' %>
